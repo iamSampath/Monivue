@@ -25,7 +25,14 @@ jobs:
         cache: 'maven'
 
     - name: Build Application and Installer with Maven
-      run: mvn -B clean package
+      run: |
+        ARCH_SUFFIX=""
+        if [[ "${{ matrix.os }}" == "macos-13" ]]; then
+          ARCH_SUFFIX="-Intel"
+        elif [[ "${{ matrix.os }}" == "macos-14" ]]; then
+          ARCH_SUFFIX="-AppleSilicon"
+        fi
+        mvn -B clean package -Dinstaller.name.suffix="$ARCH_SUFFIX"
 
     - name: Upload Installer Artifact
       uses: actions/upload-artifact@v4
