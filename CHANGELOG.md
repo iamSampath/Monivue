@@ -1,3 +1,7 @@
+## [v1.0.4] - 2025-07-22
+
+- Merge branch 'main' of https://github.com/iamSampath/Monivue
+
 ## [v1.0.3] - 2025-07-22
 
 - Update build-release.yml
