@@ -39,7 +39,11 @@
   - `monivue-output.log`
 
 - 🌐 **Cross-platform**  
-  Built with JavaFX, Monivue runs seamlessly on Windows, macOS, and Linux.
+  Built with JavaFX, Monivue runs seamlessly on Windows, and macOS.
+| Platform      | Status          | Details                                          |
+|---------------|-----------------|--------------------|
+| 🪟 Windows    | ✅ Supported   | Installer (`.exe`) |
+| 🍎 macOS      | ✅ Supported   | Installer (`.pkg`) |
 
 ---
 
