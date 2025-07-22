@@ -25,12 +25,15 @@ jobs:
         cache: 'maven'
 
     - name: Build Application and Installer with Maven
+      shell: bash
       run: |
         ARCH_SUFFIX=""
-        if [[ "${{ matrix.os }}" == "macos-13" ]]; then
+        if [ "${{ matrix.os }}" = "macos-13" ]; then
           ARCH_SUFFIX="-Intel"
-        elif [[ "${{ matrix.os }}" == "macos-14" ]]; then
+        elif [ "${{ matrix.os }}" = "macos-14" ]; then
           ARCH_SUFFIX="-AppleSilicon"
+        elif [ "${{ matrix.os }}" = "windows-latest" ]; then
+          ARCH_SUFFIX="-Windows"
         fi
         mvn -B clean package -Dinstaller.name.suffix="$ARCH_SUFFIX"
 
