@@ -1,3 +1,7 @@
+## [v1.0.3] - 2025-07-22
+
+- Update build-release.yml
+
 ## [v1.0.2] - 2025-07-22
 
 - Update README.md
