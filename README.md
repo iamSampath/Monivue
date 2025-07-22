@@ -87,7 +87,6 @@ Monivue/
 ├── view/
 │ └── dashboard.fxml
 
-
 ---
 ## 🧹 Reset Functionality
 Resetting the token via UI will:
@@ -95,6 +94,23 @@ Resetting the token via UI will:
 - Remove the stored token from Preferences.
 - Clear your watchlist.json so the app starts fresh.
 - Trigger the API token prompt on next launch.
+---
+## 🚀 Installation (End Users)
+
+### ✅ Option 1: Download from [Releases](https://github.com/iamSampath/Monivue/releases)
+
+1. Go to the [**Releases**](https://github.com/iamSampath/Monivue/releases) page.  
+2. Download the installer for your operating system:
+   - **🪟 Windows**: `Monivue-1.0.msi`
+   - **🍎 macOS (Intel)**: `Monivue-Intel-1.0.pkg`
+   - **🍎 macOS (Apple Silicon)**: `Monivue-AppleSilicon-1.0.pkg`
+3. Launch the installer:
+   - On **Windows**, double-click the `.msi` file.
+   - On **macOS**, double-click the `.pkg` file and follow the installation wizard.
+4. Follow the installation prompts:
+   - Choose install location (Windows/macOS)
+   - (Optional) Create a desktop shortcut (Windows only)
+
 ---
 ## 🧠 Future Improvements
 
@@ -104,7 +120,6 @@ Resetting the token via UI will:
 - 🧠 AI-based stock insights (beta)
 
 ---
-
 ## 🤝 License
 
 Monivue is free to use and respects your privacy. Your data stays local — no tracking, no ads.

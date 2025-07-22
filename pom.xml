@@ -254,6 +254,10 @@
                                 <argument>Medarametla Solutions</argument>
                                 <argument>--java-options</argument>
                                 <argument>-Dfile.encoding=UTF-8</argument>
+                                <argument>--mac-package-identifier</argument>
+                                <argument>com.monivue.app</argument>
+                                <argument>--mac-package-name</argument>
+                                <argument>Monivue</argument>
                             </arguments>
                         </configuration>
                     </execution>
