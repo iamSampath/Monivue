@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.monivue.controller.DashboardController"
+      spacing="12" alignment="TOP_CENTER" style="-fx-padding: 20;">
+
+    <!-- Menu Bar with Settings -->
+    <MenuBar>
+        <Menu text="Settings">
+            <MenuItem text="Reset Token" onAction="#handleResetToken"/>
+            <!-- Future option: <MenuItem text="Preferences..." onAction="#handleOpenSettings"/> -->
+        </Menu>
+    </MenuBar>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="symbolInput" promptText="Enter Symbol" />
+        <Button fx:id="addButton" text="Add" onAction="#handleAddSymbol" />
+
+        <Label text="Refresh every:" />
+        <ComboBox fx:id="intervalSelector" prefWidth="120" />
+    </HBox>
+
+    <TableView fx:id="stockTable" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="symbolColumn" text="Symbol" />
+            <TableColumn fx:id="nameColumn" text="Name" />
+            <TableColumn fx:id="priceColumn" text="Price" />
+            <TableColumn fx:id="changeColumn" text="Change %" />
+        </columns>
+    </TableView>
+
+    <Label fx:id="lastRefreshLabel" text="Last refresh: Never" />
+
+</VBox>
