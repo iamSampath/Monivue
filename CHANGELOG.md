@@ -1,3 +1,7 @@
+## [v1.0.2] - 2025-07-22
+
+- Update README.md
+
 ## [v1.0.1] - 2025-07-22
 
 - Version update and pom changes
