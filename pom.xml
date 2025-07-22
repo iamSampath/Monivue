@@ -195,7 +195,6 @@
                                         <argument>-Dmonivue.log.path=%USERPROFILE%\\monivue-error.log</argument>
                                         <argument>--java-options</argument>
                                         <argument>-Dfile.encoding=UTF-8</argument>
-
                                     </arguments>
                                 </configuration>
                             </execution>
@@ -205,6 +204,127 @@
             </build>
         </profile>
 
-        <!-- mac-x86_64 and mac-aarch64 profiles can be added similarly if needed -->
+        <!-- macOS Intel profile -->
+<profile>
+    <id>macos-intel</id>
+    <activation>
+        <os>
+            <family>mac</family>
+            <arch>x86_64</arch>
+        </os>
+    </activation>
+    <properties>
+        <javafx.platform>mac</javafx.platform>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>jpackage-mac-intel</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>${java.home}/bin/jpackage</executable>
+                            <arguments>
+                                <argument>--type</argument>
+                                <argument>pkg</argument>
+                                <argument>--dest</argument>
+                                <argument>${project.build.directory}/installer</argument>
+                                <argument>--input</argument>
+                                <argument>${project.build.directory}</argument>
+                                <argument>--name</argument>
+                                <argument>${project.name}</argument>
+                                <argument>--main-class</argument>
+                                <argument>${main.class}</argument>
+                                <argument>--main-jar</argument>
+                                <argument>${project.build.finalName}.jar</argument>
+                                <argument>--icon</argument>
+                                <argument>src/main/resources/icon.icns</argument>
+                                <argument>--license-file</argument>
+                                <argument>src/main/resources/LICENSE.txt</argument>
+                                <argument>--app-version</argument>
+                                <argument>${project.version}</argument>
+                                <argument>--vendor</argument>
+                                <argument>Medarametla Solutions</argument>
+                                <argument>--java-options</argument>
+                                <argument>-Dfile.encoding=UTF-8</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</profile>
+
+<!-- macOS Apple Silicon profile -->
+<profile>
+    <id>macos-arm</id>
+    <activation>
+        <os>
+            <family>mac</family>
+            <arch>aarch64</arch>
+        </os>
+    </activation>
+    <properties>
+        <javafx.platform>mac</javafx.platform>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>jpackage-mac-arm</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>${java.home}/bin/jpackage</executable>
+                            <arguments>
+                                <argument>--type</argument>
+                                <argument>pkg</argument>
+                                <argument>--dest</argument>
+                                <argument>${project.build.directory}/installer</argument>
+                                <argument>--input</argument>
+                                <argument>${project.build.directory}</argument>
+                                <argument>--name</argument>
+                                <argument>${project.name}</argument>
+                                <argument>--main-class</argument>
+                                <argument>${main.class}</argument>
+                                <argument>--main-jar</argument>
+                                <argument>${project.build.finalName}.jar</argument>
+                                <argument>--icon</argument>
+                                <argument>src/main/resources/icon.icns</argument>
+                                <argument>--license-file</argument>
+                                <argument>src/main/resources/LICENSE.txt</argument>
+                                <argument>--app-version</argument>
+                                <argument>${project.version}</argument>
+                                <argument>--vendor</argument>
+                                <argument>Medarametla Solutions</argument>
+                                <argument>--java-options</argument>
+                                <argument>-Dfile.encoding=UTF-8</argument>
+                                <argument>--mac-package-identifier</argument>
+                                <argument>com.monivue.app</argument>
+                                <argument>--mac-package-name</argument>
+                                <argument>Monivue</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</profile>
+
     </profiles>
 </project>

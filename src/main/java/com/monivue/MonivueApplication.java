@@ -36,7 +36,7 @@ public class MonivueApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        String token = loadToken();
+        String token = loadTokenFromPreferences();
 
         if (token == null || token.isBlank()) {
             token = promptForToken();
@@ -46,10 +46,11 @@ public class MonivueApplication extends Application {
                 Platform.exit();
                 return;
             }
-            saveToken(token);
+            saveTokenToPreferences(token);
         }
 
         System.setProperty(TOKEN_KEY, token);
+        System.out.println("✅ Token loaded from preferences.");
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/dashboard.fxml"));
@@ -72,16 +73,9 @@ public class MonivueApplication extends Application {
         launch(args);
     }
 
-    private String loadToken() {
-        String token = System.getenv(TOKEN_KEY);
-        if (token == null || token.isBlank()) {
-            token = System.getProperty(TOKEN_KEY);
-        }
-        if (token == null || token.isBlank()) {
-            Preferences prefs = Preferences.userNodeForPackage(MonivueApplication.class);
-            token = prefs.get(TOKEN_KEY, null);
-        }
-        return token;
+    private String loadTokenFromPreferences() {
+        Preferences prefs = Preferences.userNodeForPackage(MonivueApplication.class);
+        return prefs.get(TOKEN_KEY, null);
     }
 
     private String promptForToken() {
@@ -94,7 +88,7 @@ public class MonivueApplication extends Application {
         return result.filter(s -> !s.isBlank()).map(String::trim).orElse(null);
     }
 
-    private void saveToken(String token) {
+    private void saveTokenToPreferences(String token) {
         Preferences prefs = Preferences.userNodeForPackage(MonivueApplication.class);
         prefs.put(TOKEN_KEY, token);
     }
