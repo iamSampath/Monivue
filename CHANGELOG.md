@@ -1,3 +1,7 @@
+## [v1.0.5] - 2025-07-23
+
+- Fixed Apple Installer
+
 ## [v1.0.4] - 2025-07-22
 
 - Merge branch 'main' of https://github.com/iamSampath/Monivue
