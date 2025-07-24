@@ -84,29 +84,6 @@ To manually reset the token:
 | Watchlist   | `~/.monivue/Monivue/watchlist.json` |
 | Saved Token | OS-specific Java Preferences path   |
 
-
----
-
-
-## 📂 File Structure Overview
-
-Monivue/
-├── src/
-│ ├── com.monivue
-│ │ └── MonivueApplication.java
-│ ├── com.monivue.controller
-│ │ └── DashboardController.java
-│ ├── com.monivue.service
-│ │ └── StockApiService.java
-│ ├── com.monivue.model
-│ │ └── StockQuote.java
-│ ├── com.monivue.persistence
-│ │ └── WatchlistPersistence.java
-│ └── com.monivue.util
-│ └── TokenPersistence.java
-├── view/
-│ └── dashboard.fxml
-
 ---
 ## 🧹 Reset Functionality
 Resetting the token via UI will:
@@ -208,7 +185,6 @@ Resetting the token via UI will:
 - ⏎ — View details
 - ⌫ — Delete row
 - ⌘E / Ctrl+E — Edit notes
-  
 ---
 
 ## 📦 Installation
