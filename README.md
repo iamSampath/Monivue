@@ -3,6 +3,11 @@
 **Monivue** is a modern, lightweight JavaFX-based stock watchlist app that lets you track real-time stock data through the [Twelve Data API](https://twelvedata.com/). Designed with simplicity and speed in mind, it provides a clutter-free UI, auto-refresh functionality, and persistent token management — all while keeping your data private.
 
 ---
+<p align="center">
+  <img src="https://github.com/iamSampath/Monivue/blob/b505c7bc5a91d70ac5eec69785b6ef3dd81f4eb6/src/main/resources/icon/monivue-icon.png" alt="Monivue Logo" width="300"/>
+</p>
+
+---
 
 ## ✨ Features
 
