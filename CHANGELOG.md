@@ -1,3 +1,7 @@
+## [v1.0.7] - 2025-07-24
+
+- Update README.md
+
 ## [v1.0.6] - 2025-07-24
 
 - Merge pull request #1 from iamSampath/dthm
