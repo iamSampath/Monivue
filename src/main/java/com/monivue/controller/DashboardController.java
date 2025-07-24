@@ -3,9 +3,8 @@ package com.monivue.controller;
 import com.monivue.model.StockQuote;
 import com.monivue.persistence.WatchlistPersistence;
 import com.monivue.service.StockApiService;
-import com.monivue.util.TokenPersistence;
 import com.monivue.MonivueApplication;
-import com.monivue.persistence.WatchlistPersistence;
+import com.monivue.util.ThemeUtil;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -19,6 +18,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import javafx.scene.Scene;
 
 public class DashboardController {
 
@@ -45,6 +46,8 @@ public class DashboardController {
         }
     }
 
+    @FXML
+    private ToggleButton themeToggle;
     @FXML
     private TextField symbolInput;
     @FXML
@@ -73,7 +76,21 @@ public class DashboardController {
 
     @FXML
     public void initialize() {
+
+        boolean isDark = ThemeUtil.getSavedTheme();
+        themeToggle.setSelected(isDark);
+        stockTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
+        // Apply saved theme to the scene once it's ready
+        Platform.runLater(() -> {
+            Scene scene = themeToggle.getScene();
+            if (scene != null) {
+                ThemeUtil.applyTheme(scene, isDark);
+            }
+        });
+
         intervalSelector.getItems().addAll(
+                new IntervalOption("OFF", 0),
                 new IntervalOption("30 sec", 30),
                 new IntervalOption("1 min", 60),
                 new IntervalOption("2 min", 120),
@@ -84,7 +101,25 @@ public class DashboardController {
             IntervalOption selected = intervalSelector.getValue();
             if (selected != null) {
                 refreshIntervalSeconds = selected.getSeconds();
-                startAutoRefresh();
+
+                if (refreshIntervalSeconds > 0) {
+                    startAutoRefresh(); // normal refresh
+                } else {
+                    if (refreshTimer != null) {
+                        refreshTimer.cancel(); // cancel timer if OFF
+                    }
+                }
+            }
+        });
+
+        // Add toggle listener
+        themeToggle.selectedProperty().addListener((obs, wasSelected, isNowSelected) -> {
+            ThemeUtil.saveTheme(isNowSelected);
+            Scene scene = themeToggle.getScene();
+            if (scene != null) {
+                ThemeUtil.applyTheme(scene, isNowSelected);
+            } else {
+                System.out.println("Scene is null during toggle.");
             }
         });
 
@@ -98,7 +133,6 @@ public class DashboardController {
         for (String symbol : savedSymbols) {
             StockApiService.fetchStock(symbol).ifPresent(watchlist::add);
         }
-
         startAutoRefresh();
     }
 

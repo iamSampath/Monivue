@@ -2,36 +2,54 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.monivue.controller.DashboardController"
       spacing="12" alignment="TOP_CENTER" style="-fx-padding: 20;">
 
-    <!-- Menu Bar with Settings -->
+    <ImageView fitHeight="100" fitWidth="100">
+          <image>
+            <Image url="@/icon/monivue-icon.png" />
+          </image>
+    </ImageView>
+
+    <!-- Settings Menu -->
     <MenuBar>
         <Menu text="Settings">
             <MenuItem text="Reset Token" onAction="#handleResetToken"/>
-            <!-- Future option: <MenuItem text="Preferences..." onAction="#handleOpenSettings"/> -->
         </Menu>
     </MenuBar>
 
-    <HBox spacing="10" alignment="CENTER_LEFT">
-        <TextField fx:id="symbolInput" promptText="Enter Symbol" />
-        <Button fx:id="addButton" text="Add" onAction="#handleAddSymbol" />
-
-        <Label text="Refresh every:" />
-        <ComboBox fx:id="intervalSelector" prefWidth="120" />
+    <!-- Theme Toggle -->
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <ToggleButton fx:id="themeToggle" text="🌞 / 🌙" selected="false" />
     </HBox>
 
-    <TableView fx:id="stockTable" prefHeight="400">
+    <!-- Symbol Input and Add Button -->
+    <HBox spacing="10" alignment="CENTER" HBox.hgrow="ALWAYS">
+        <TextField fx:id="symbolInput" promptText="Enter Symbol" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        <Button fx:id="addButton" text="Add" onAction="#handleAddSymbol" />
+    </HBox>
+
+    <!-- Refresh Interval Selector -->
+    <HBox spacing="10" alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+        <Label text="Refresh every:" />
+        <ComboBox fx:id="intervalSelector" prefWidth="150" />
+    </HBox>
+
+    <!-- Stock Table -->
+    <TableView fx:id="stockTable" VBox.vgrow="ALWAYS">
         <columns>
             <TableColumn fx:id="symbolColumn" text="Symbol" />
             <TableColumn fx:id="nameColumn" text="Name" />
-            <TableColumn fx:id="priceColumn" text="Price" />
+            <TableColumn fx:id="priceColumn" text="Price ($)" />
             <TableColumn fx:id="changeColumn" text="Change %" />
         </columns>
     </TableView>
 
+    <!-- Last Refresh Label -->
     <Label fx:id="lastRefreshLabel" text="Last refresh: Never" />
 
 </VBox>
