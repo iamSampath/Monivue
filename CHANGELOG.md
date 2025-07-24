@@ -1,3 +1,7 @@
+## [v1.0.8] - 2025-07-24
+
+- Update README.md
+
 ## [v1.0.7] - 2025-07-24
 
 - Update README.md
