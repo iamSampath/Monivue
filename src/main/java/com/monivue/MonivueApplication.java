@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 
 public class MonivueApplication extends Application {
 
+    private static MonivueApplication instance;
     private static final String TOKEN_KEY = "MONIVUE_API_TOKEN";
 
     static {
@@ -68,6 +69,14 @@ public class MonivueApplication extends Application {
         }
     }
 
+    @Override
+    public void init() {
+        instance = this;
+    }
+
+    public static MonivueApplication getInstance() {
+        return instance;
+    }
     public static void main(String[] args) {
         System.setProperty("https.protocols", "TLSv1.2");
         launch(args);

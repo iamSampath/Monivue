@@ -17,6 +17,9 @@
 
     <!-- Settings Menu -->
     <MenuBar>
+        <Menu text="File">
+            <MenuItem text="Export Watchlist to CSV" onAction="#handleExportToCSV"/>
+        </Menu>
         <Menu text="Settings">
             <MenuItem text="Reset Token" onAction="#handleResetToken"/>
         </Menu>
@@ -36,12 +39,15 @@
     <!-- Refresh Interval Selector -->
     <HBox spacing="10" alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
         <Label text="Refresh every:" />
-        <ComboBox fx:id="intervalSelector" prefWidth="150" />
+        <ComboBox fx:id="intervalSelector" prefWidth="250" />
     </HBox>
+
+    <TextField fx:id="searchField" promptText="Search stocks..." />
 
     <!-- Stock Table -->
     <TableView fx:id="stockTable" VBox.vgrow="ALWAYS">
         <columns>
+            <TableColumn fx:id="favoriteColumn" text="★" prefWidth="50" />
             <TableColumn fx:id="symbolColumn" text="Symbol" />
             <TableColumn fx:id="nameColumn" text="Name" />
             <TableColumn fx:id="priceColumn" text="Price ($)" />
@@ -49,7 +55,10 @@
         </columns>
     </TableView>
 
-    <!-- Last Refresh Label -->
-    <Label fx:id="lastRefreshLabel" text="Last refresh: Never" />
+   <HBox spacing="10" alignment="CENTER" HBox.hgrow="ALWAYS">
+    <Label fx:id="lastRefreshLabel" text="Last refresh: -" />
+    <Button text="🔄 Refresh Now" onAction="#handleManualRefresh" />
+   </HBox>
+
 
 </VBox>
