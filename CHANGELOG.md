@@ -1,3 +1,7 @@
+## [v1.0.10] - 2025-07-26
+
+- Merge pull request #2 from iamSampath/impact
+
 ## [v1.0.9] - 2025-07-24
 
 - Update README.md
