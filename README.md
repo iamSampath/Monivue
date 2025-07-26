@@ -33,6 +33,30 @@ Monivue is a privacy-respecting desktop app built with JavaFX that allows you to
   
   Monivue will auto-update your watchlist at the selected frequency.
 
+  #### 🔁 Auto-Refresh with Interval Control
+- Choose refresh intervals (OFF / 15s / 30s / 1 min)
+- Option to disable API calls when OFF
+- Status bar shows last updated time
+
+#### 🎯 Conditional Formatting
+- Green for gains, red for losses
+- Grey for inactive or offline data
+- Helps you scan critical changes instantly
+
+#### 🧭 Column Sorting and Search
+- Click to sort by Price, % Change, Volume, etc.
+- Search bar to find symbols instantly
+
+#### ⭐ Mark Favorites
+- Clickable star icon to highlight key stocks
+- Favorites stay sticky even after refresh
+
+#### 📋 Row Context Menu
+- Right-click a stock to:
+  - View Details
+  - Remove from Watchlist
+  - Open in external site
+
 - 💾 **Persistent Watchlist**  
   Your stock symbols are saved locally and loaded automatically every time you open the app. No need to re-enter them.
 
@@ -99,8 +123,8 @@ Resetting the token via UI will:
 1. Go to the [**Releases**](https://github.com/iamSampath/Monivue/releases) page.  
 2. Download the installer for your operating system:
    - **🪟 Windows**: `Monivue-1.0.msi`
-   - **🍎 macOS (Intel)**: `Monivue-Intel-1.0.pkg`
-   - **🍎 macOS (Apple Silicon)**: `Monivue-AppleSilicon-1.0.pkg`
+   - **🍎 macOS (Intel)**: `Monivue-1.0.pkg`
+   - **🍎 macOS (Apple Silicon)**: `Monivue-Asc-1.0.pkg`
 3. Launch the installer:
    - On **Windows**, double-click the `.msi` file.
    - On **macOS**, double-click the `.pkg` file and follow the installation wizard.
@@ -110,34 +134,11 @@ Resetting the token via UI will:
 
 ---
 
-## 🚀 Future Features (Prioritized by Impact)
+## 🚀 RoadMap: Future Features (Prioritized by Impact)
 
 ### ✅ High Impact, Low Effort
 
-#### 🔁 Auto-Refresh with Interval Control
-- Choose refresh intervals (OFF / 15s / 30s / 1 min)
-- Option to disable API calls when OFF
-- Status bar shows last updated time
 
-#### 🎯 Conditional Formatting
-- Green for gains, red for losses
-- Grey for inactive or offline data
-- Helps you scan critical changes instantly
-
-#### 🧭 Column Sorting and Search
-- Click to sort by Price, % Change, Volume, etc.
-- Search bar to find symbols instantly
-
-#### ⭐ Mark Favorites
-- Clickable star icon to highlight key stocks
-- Favorites stay sticky even after refresh
-
-#### 📋 Row Context Menu
-- Right-click a stock to:
-  - View Details
-  - Remove from Watchlist
-  - Copy Symbol
-  - Open in external site
 
 ---
 
@@ -199,7 +200,7 @@ Installers are available on the [Releases](https://github.com/your-repo/monivue/
 ---
 ## 🤝 License
 
-Monivue is free to use and respects your privacy. Your data stays local — no tracking, no ads.
+Monivue is licensed under the MIT License. It’s free to use and respects your privacy — all data stays local with no tracking, no ads, and no data collection.
 
 ---
 
